@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#FFFFFF">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="52dp" android:gravity="center_vertical" android:paddingHorizontal="12dp" android:background="#172033">
+        <TextView android:id="@+id/titleText" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="EditX · Untitled" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="18sp" android:singleLine="true" android:ellipsize="middle"/>
+        <TextView android:id="@+id/menuButton" android:layout_width="44dp" android:layout_height="match_parent" android:gravity="center" android:text="⋮" android:textSize="28sp" android:textColor="#FFFFFF" android:contentDescription="Menu"/>
+    </LinearLayout>
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="48dp" android:fillViewport="false" android:scrollbars="none" android:background="#EEF2F8">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="center_vertical" android:orientation="horizontal" android:paddingHorizontal="6dp">
+            <Button android:id="@+id/undoButton" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Undo" android:minWidth="0dp"/>
+            <Button android:id="@+id/findButton" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Find" android:minWidth="0dp"/>
+            <Button android:id="@+id/replaceButton" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Replace" android:minWidth="0dp"/>
+            <Button android:id="@+id/wrapButton" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Wrap: On" android:minWidth="0dp"/>
+            <Button android:id="@+id/linesButton" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Lines: On" android:minWidth="0dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+    <ScrollView
+        android:id="@+id/verticalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="insideOverlay"
+        android:overScrollMode="ifContentScrolls">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lineNumbers"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:background="#F3F5F8"
+                android:textColor="#798397"
+                android:gravity="top|end"
+                android:paddingTop="10dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:fontFamily="monospace"
+                android:textSize="14sp"
+                android:text="1"/>
+
+            <com.editx.app.CustomHorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fillViewport="true"
+                android:scrollbars="horizontal"
+                android:scrollbarStyle="insideOverlay"
+                android:overScrollMode="ifContentScrolls">
+
+                <EditText
+                    android:id="@+id/editor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="300dp"
+                    android:gravity="top|start"
+                    android:background="#FFFFFF"
+                    android:padding="10dp"
+                    android:fontFamily="monospace"
+                    android:textSize="14sp"
+                    android:textColor="#202938"
+                    android:hint="Start typing…"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:breakStrategy="simple"
+                    android:importantForAutofill="no"/>
+
+            </com.editx.app.CustomHorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
+    <TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="28dp" android:gravity="center_vertical" android:paddingHorizontal="10dp" android:background="#E8EDF5" android:text="Plain text  ·  UTF-8  ·  Ready" android:textColor="#46536A" android:textSize="12sp"/>
+</LinearLayout>
